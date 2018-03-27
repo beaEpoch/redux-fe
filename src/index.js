@@ -6,7 +6,11 @@ import thunk from 'redux-thunk'
 import App from './components/App'
 import rootReducer from './reducers'
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),    // 启用浏览器 redux 调试组件
+    applyMiddleware(thunk),
+    );
 
 render(
     <Provider store={store}>

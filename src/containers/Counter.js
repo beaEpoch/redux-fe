@@ -47,6 +47,15 @@ const mapStateToProps = (state) => {
 };
 
 const mapDisPatchToProps = (dispatch) => {
+    // bindActionCreators(actionCreators, dispatch) 调用即自动实现 dispatch
+    // 如：const action = actionCreator();    返回一个 {type: 'INCREMENT'} 的 action
+    //    store.dispatch(action)
+    // 以上代码等价于：increment = bindActionCreators(actionCreator, dispatch);
+    //              increment()    无需手动 dispatch，就可以直接调用
+    // return {
+    //     increment: dispatch(actions.increment()),
+    //     decrement: dispatch(actions.decrement())
+    // }
     return {action: bindActionCreators(actions, dispatch)}
 };
 
